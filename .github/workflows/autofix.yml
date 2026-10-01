@@ -13,8 +13,8 @@ jobs:
   autofix:
     runs-on: ubuntu-latest
     steps:
-      - uses: mhils/workflows/checkout@34e9a0dabe3f355d60c385cdb1b1368c9219ecd3
-      - uses: mhils/workflows/setup-python@34e9a0dabe3f355d60c385cdb1b1368c9219ecd3
+      - uses: mhils/workflows/checkout@5b6540d578f48644ffa5e955cedadc81034cb7d8
+      - uses: mhils/workflows/setup-python@5b6540d578f48644ffa5e955cedadc81034cb7d8
 
       - run: pip install -e .[dev]
       - run: ruff check --fix-only .
@@ -22,7 +22,7 @@ jobs:
 
       - run: web/gen/all
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .github/node-version.txt
       - run: npm ci
@@ -35,4 +35,4 @@ jobs:
 
       - uses: mhils/add-pr-ref-in-changelog@main
 
-      - uses: autofix-ci/action@2891949f3779a1cafafae1523058501de3d4e944
+      - uses: autofix-ci/action@c5b2d67aa2274e7b5a18224e8171550871fc7e4a
